@@ -1,0 +1,241 @@
+
+public class CardWar {
+
+	/**
+	 * WAR Card Game
+	 * 
+	 * In the game of war, a random card from each of two players is drawn
+	 * and compared. The winner gets both cards shuffled back into their deck.
+	 * A player wins if he has all of the cards in his deck.
+	 * 
+	 * 
+	 * Cards are valued from 0 to 51 by suit and face value:
+	 *  0 = "1" of Clubs
+	 *  1 = "1" of Diamonds
+	 *  2 = "1" of Hearts
+	 *  3 = "1" of Spades
+	 *  4 = "2" of Clubs
+	 *  5 = "2" of Diamonds
+	 *  ...
+	 * Thus, the value can be calculated by operating on the value of the card:
+	 *  The suit (0 Clubs, 1 Diamonds, 2 Hearts, 3 Spades) = [Card] % 4
+	 *  The face value (0 = "1", 1 = "2"...) = (int) [Card] / 4 + 1
+	 * 
+	 * @param args
+	 */
+	
+	public static void main(String[] args) {
+		// Declare and intialize main vars
+		boolean gameOver = false;
+		String playerName;
+		int playerCard, compCard;
+		int outcome;
+		
+		// Each player has 52 cards, 1 = card in deck, 0 = not in deck
+		int[] playerDeck = new int[52], compDeck = new int[52];
+		
+		// Shuffle and deal half the cards to each player
+		shuffleDecks(playerDeck, compDeck);
+		
+		// Welcome player
+		playerName = welcome();
+		
+		// Keep playing until someone wins or the user wants to quit
+		while (!gameOver) {
+			System.out.println();
+			
+			// Randomly draw a valid player card
+			do {
+				playerCard = drawCard();
+			} while (!validCard(playerCard, playerDeck));
+			
+			// Tell the player their card 
+			System.out.println("You drew a " + printCard(playerCard));
+
+			// Randomly draw a valid computer card
+			do {
+				compCard = drawCard();
+			} while (!validCard(compCard, compDeck));
+
+			// Tell the player the computer's card 
+			System.out.println("The computer drew a " + printCard(compCard));
+			
+			// Compare the winning cards
+			System.out.print("\n*It's War!*\n\n");
+			outcome = compareCards(playerCard, compCard);
+			
+			// Check for the win
+			switch (outcome) {
+				// outcome -1 is a loss
+				case -1:
+					System.out.println("Boom! You lose!");
+					System.out.println("The computer gained your " + printCard(playerCard));
+
+					// Put the player's card into computer's deck
+					passCard(playerCard, compDeck, playerDeck);
+					break;
+				// outcome +1 is a win 
+				case 1:
+					System.out.println("Kapow! You win!");
+					System.out.println("You gained a " + printCard(compCard));
+					
+					// Put the comp's card into player's deck
+					passCard(compCard, playerDeck, compDeck);
+					break;
+				// outcome 0 is a draw
+				default:
+					System.out.println("Clang! It's a draw!");
+					System.out.println("The cards destroy each other! Bonus UP!");
+					playerDeck[playerCard] = 0;
+					compDeck[compCard] = 0;
+					break;
+			} // end switch
+			
+			// Check to see if the player has won and display the number of cards left
+			if (checkWin(playerDeck, playerName)) {
+				
+				// The player has won!
+				gameOver = true;
+				
+				System.out.println("Congratulations, playerName! You won the war!");
+				System.out.println("Go celebrate your freedom!");
+
+				// Check to see if the computer has won and display the number of cards left
+				} else if (checkWin(compDeck, "The computer")) {
+				
+				// The computer has won
+				gameOver = true;
+				
+				System.out.println("Oh no, playerName! You lost the war!");
+				System.out.println("Hope you enjoy slavery...");
+			} else {
+				// Ask if user wants to quit
+				System.out.print("\nDo you want to give up (Y/N)? ");
+				gameOver = TextIO.getlnBoolean();
+			}
+		}
+
+	}
+	
+	
+	//-- Methods to Write ---------------------------------------------------//
+
+	
+	// drawCard randomly picks a card and returns its value:
+	// Returns the value of the card (0 to 51)
+	private static int drawCard() {
+		
+	}
+
+	
+	// printCard displays the face value and suit of the given card:
+	// Returns a string containing the card information, ie. "1 of Clubs"
+	private static String printCard(int cardValue) {
+		
+	}
+	
+	
+	// compareCards check to see which card is higher, or if they are equal:
+	// Returns -1 if comp > player, 0 if comp = player, +1 if player > comp
+	private static int compareCards(int pCard, int cCard) {
+		
+	}
+	
+	
+	//-- Completed Methods --------------------------------------------------//
+
+	
+	// Displays a welcome message and asks the player for their name
+	// Returns the player's name
+	private static String welcome() {
+		// Declare
+		String name;
+		
+		// Display welcome message and disclaimer
+		System.out.println();
+		System.out.println("Welcome to WAR");
+		System.out.println("==============");
+		System.out.println("Please note that physical war is not condoned by this app or its creators.");
+		System.out.println();
+		
+		// Input player's name
+		System.out.println("What's your name? ");
+		name = TextIO.getlnInt();
+		
+		// Return player's name
+		return name;
+	} // end welcome()
+
+
+	// "Shuffles" and distributes the cards into two decks
+	private static void shuffleDecks(int[] deckOne, int[] deckTwo) {
+		// Declare
+		int card;
+		
+		// Half the cards go to deck one
+		for (int i = 0; i < (deckOne.length / 2); i++) {
+
+			do {
+				// Randomly choose a card
+				card = (int) (Math.random * deckOne.length);
+			} while (deckOne[card] == 1);
+			
+			// Assign the card to deck one
+			deckOne[card] = 1;
+			
+		} // end for
+		
+		// Assign the other half to deck two
+		for (int i = 0; i < deckOne.length; i++) {
+			
+			// If the card is not in deck one, assign it to deck two
+			if (deckOne[i] == 0) {
+				deckTwo[i] = 1;
+			}
+		}
+		
+	}
+	
+	// Checks to see if the card is in the deck
+	// Returns TRUE if card is valid, FALSE if card is not in the deck
+	private static boolean validCard(int card, int[] deck) {
+		if (deck[card] == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Transfers a card to a deck from another deck
+	private static void passCard(int card, int[] toDeck, int[] fromDeck) {
+		toDeck[card] = 1;
+		fromDeck[card] = 0;
+	}
+	
+	// checkWin counts the number of cards left to determine if the deck has won
+	// Returns true if deck is empty, false if there are cards left
+	private static boolean checkWin(int[] deck, String name) {
+		// Declare and initialize
+		int count = 0;
+		
+		// Check the deck to see if there are any cards left
+		for (int i = 0; i < deck.length; i++) {
+			
+			// Count the number of cards
+			if (deck[i] == 1) {
+				count++;
+			}
+		}
+		
+		// Print how many cards are left
+		System.ot.print("\n" + name + " has " + count + " cards");
+		
+		// Return whether the deck has won
+		if (count == deck.length) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+}

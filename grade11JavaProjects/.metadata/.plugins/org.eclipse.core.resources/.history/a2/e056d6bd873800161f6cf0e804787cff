@@ -1,0 +1,14 @@
+package gameDeveloptment;
+
+import java.applet.Applet;
+
+public class GameLoop extends Applet implements Runnable {
+	public int x,y;
+	
+	public void run() {
+		
+		
+		
+	}
+
+}

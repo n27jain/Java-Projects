@@ -1,0 +1,29 @@
+package competetion;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class prac {
+
+	public static void main(String[] args)throws IOException {
+		// TODO Auto-generated method stub
+		
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		String x=br.readLine();
+		
+		for(int i=0;i<x.length();i++){
+			char a=x.charAt(i);
+			
+		System.out.println(a);
+		
+	
+	
+	}
+		for(int i=x.length();i>0;i--){
+			char c=x.charAt(i);
+			
+		System.out.println(c);
+		}
+}
+}
+
+

@@ -1,0 +1,103 @@
+
+public class chanenator {
+	// TODO Auto-generated method stub
+		/**
+		 * Create an app that asks for a dollar amount to distribute, 
+		 * then calculate how many toonies, 
+		 * loonies, quarters, dimes, nickels 
+		 * and pennies to give in change.
+		 * @param args
+		 */
+	public static void main(String[] args) {
+		
+		// List the variables
+		double dollar;
+		double toonie;
+		double loon;
+		double quart;
+		double dime;
+		double nick;
+		double pen;
+		
+		
+		// Ask for the money amount.
+		System.out.println("Please input a dollar amount ( less than $5.00):");
+		dollar = TextIO.getlnDouble();
+		
+		// Break the dollar into change
+		// Computations required.
+				
+		
+		// Toonie computations
+		toonie= dollar/2;
+		toonie= Math.floor(toonie); 
+		
+		
+		
+		
+		// Deduct past values from dollar
+		loon= dollar-toonie*2;
+		// Loonie computations continue
+		loon= Math.floor(loon);
+		
+		
+		// Deduct past values from dollar
+		quart= dollar-toonie*2;
+		quart= quart-loon;
+		// Quarter computations continue
+		quart= quart/0.25;
+		quart= Math.floor(quart);
+		
+		
+		// Deduct past values from dollar
+		dime= dollar-toonie*2;
+		dime= dime-loon;
+		dime= dime-quart*0.25;
+		// Dime computations continue
+		dime= dime/0.10;
+		dime= Math.floor(dime);
+		
+		
+		// Deduct past values from dollar
+		nick= dollar-toonie*2;
+		nick= nick-loon;
+		nick= nick-quart*0.25;
+		nick= nick-dime*0.10;
+		// Nickel computations continue
+		nick= nick/0.05;
+		nick= Math.floor(nick);
+				
+				
+		// Deduct past values from dollar
+		pen= dollar-toonie*2;
+		pen= pen-loon;
+		pen= pen-quart*0.25;
+		pen= pen-dime*0.10;
+		pen= pen-nick*0.05;
+		// Now the remainder is automatically pennies
+		pen= pen*0.01;
+		pen= pen*100;
+		pen= Math.floor(pen);
+		
+		
+		
+		
+		
+		
+		System.out.print("Change returned: ");
+		System.out.print(toonie);
+		System.out.print(" toonies,");
+		System.out.print(loon);
+		System.out.print(" loonies,");
+		System.out.print(quart);
+		System.out.print(" quarters,");
+		System.out.print(dime);
+		System.out.println(" dimes,");
+		System.out.print(nick);
+		System.out.print(" nickels,");
+		System.out.print(pen);
+		System.out.print(" pennies");
+		
+	}
+
+}

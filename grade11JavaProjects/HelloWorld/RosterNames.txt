@@ -1,0 +1,11 @@
+#TeslaShuck,123,123,Africa
+Apple,123,123,Africa
+Blue Burd,123,123,Africa
+Frick,123,123,Africa
+Hello,123,123,Africa
+Naman Jain,123,123,India
+Naman Jain ,123,123,China
+TansMan,123,123,Africa
+Uganda,123,123,Africa
+Yolo,123,123,Africa
+Zebra,123,123,Africa

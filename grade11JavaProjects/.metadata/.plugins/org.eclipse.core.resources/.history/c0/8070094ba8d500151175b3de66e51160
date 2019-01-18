@@ -1,0 +1,22 @@
+package competetion;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class hidden {
+
+	public static void main(String[] args)throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		String x=br.readLine();
+		
+		for(int i=0;i<x.length();i++){
+			char w=x.charAt(i);
+			char y=x.charAt(x.length()-i);
+			System.out.println(w);
+			System.out.println(y);
+			
+			
+		}
+	}
+
+}

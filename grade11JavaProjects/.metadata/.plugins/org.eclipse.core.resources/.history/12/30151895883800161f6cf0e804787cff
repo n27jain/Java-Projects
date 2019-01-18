@@ -1,0 +1,23 @@
+package gameDeveloptment;
+
+import java.applet.Applet;
+
+public class GameLoop extends Applet implements Runnable {
+	public int x,y;
+	
+	public void run() {
+		for(int i=0; i!=1000; i=i++){
+			 x=i;
+			 y=i;
+			 try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+		
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+
+}

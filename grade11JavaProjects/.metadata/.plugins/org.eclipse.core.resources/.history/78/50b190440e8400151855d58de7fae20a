@@ -1,0 +1,38 @@
+
+public class chanenator {
+	// TODO Auto-generated method stub
+		/**
+		 * Create an app that asks for a dollar amount to distribute, 
+		 * then calculate how many toonies, 
+		 * loonies, quarters, dimes, nickels 
+		 * and pennies to give in change.
+		 * @param args
+		 */
+	public static void main(String[] args) {
+		
+		// List the variables
+		double dollar;
+		double toonie;
+		double loon;
+		double quart;
+		double dime;
+		double nick;
+		double pen;
+		
+		
+		// Ask for the money amount.
+		System.out.println("Please input a dollar amount ( less than $5.00):");
+		dollar = TextIO.getlnDouble();
+		
+		toonie= Math.round(dollar * 1d)/1d; 
+		
+		System.out.println(toonie);
+
+		
+		// Break the dollar into change
+		// Computations required.
+		
+
+	}
+
+}

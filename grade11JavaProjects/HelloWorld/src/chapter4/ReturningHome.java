@@ -1,0 +1,98 @@
+package chapter4;
+
+import TextIO;
+
+public class ReturningHome {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Please input instructions in the format [L/R], [Street Name]." );
+		System.out.println("The final instruction must be of the format [L/R], SCHOOL." );
+		
+		
+		
+		String [] command=new String[9];
+		String [] direction=new String[9];
+		
+		int howMany=0;
+		
+		int exit=0;// We use this int to make the statement &&street[i]!="SCHOOL";------TRUE!
+		for(int i=0;command[8]==null&&exit<100;i++){
+			
+			howMany++;
+			
+			command[i]=TextIO.getln();
+			while(command[i].charAt(0)!='R'&&command[i].charAt(0)!='L'||command[i].charAt(1)!=','){
+				System.out.println("Invalid Entry!" );
+				System.out.println("Please input instructions in the format [L/R], [Street Name]." );
+				command[i]=TextIO.getln();
+				
+			}
+			command[i]=command[i].toUpperCase();
+			System.out.println(command[i]);
+			
+			char check=command[i].charAt(0);
+			if(check=='R'){
+					direction[i]="LEFT";// opposite
+					
+			}
+			else if(check=='L'){
+				direction[i]="RIGHT";// Opposite
+				
+			}
+				int three=3; // This int is used to find the default char after ',';
+				char sCheck=command[i].charAt(three);
+				
+				if(sCheck!=' '){
+					street[i]=command[i].substring(2,command[i].length());
+					System.out.println(street[i]);
+					if (street[i].equals("SCHOOL")){
+						exit=150;
+					}
+				}
+				else if(sCheck==' '){
+					while (sCheck==' '){
+						sCheck=command[i].charAt(three++);
+					}
+					street[i]=command[i].substring(three-1,command[i].length());
+					
+					if (street[i].equals("SCHOOL")){
+						exit=150;
+					}
+				}
+		}
+		
+		
+		String [] flip=new String [howMany];
+		
+		for(int x=0;x<=flip.length-1;x++){
+			flip[x]=street[x];
+			System.out.println(flip[x]);
+		}
+		String [] newStreet=new String [howMany];
+		
+		for(int x=0; x<=(flip.length)-1;x++){
+			
+			newStreet[x]=flip[flip.length-x];
+			
+		}
+		
+		flip=direction;
+		
+		String[] newDirect=new String[howMany];
+		
+		for(int x=0; x<=(flip.length)-1;x++){
+					
+				newDirect[x]=flip[flip.length-x];
+					
+		}
+		
+		for(int y=1;y<=(flip.length)-1;y++){// Print out all of the directions except for the last one.
+			
+			System.out.println("Turn "+newDirect[y]+" onto "+newStreet[y]+" street." );
+			
+		}
+		System.out.println("Turn "+newDirect[0]+" into your HOME." );
+	}
+
+}

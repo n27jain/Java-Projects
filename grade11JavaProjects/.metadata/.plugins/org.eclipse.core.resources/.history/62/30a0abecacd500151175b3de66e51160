@@ -1,0 +1,28 @@
+package competetion;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class helpte {
+
+	public static void main(String[] args)throws IOException  {
+		// TODO Auto-generated method stub
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		int[]x=new int[4];
+		String xx=br.readLine();
+		for(int i=0;i<xx.length();i++){
+			char a=xx.charAt(i);
+			char q=xx.charAt(i+1);
+			int b=Character.getNumericValue(a);
+			int c=Character.getNumericValue(q);
+			if(a!=' '&&q!=' '){
+			x[i]=(b+10+c);
+			}
+			else if(a!=' '&&b==' '){
+				x[i]=(a);
+			}
+		System.out.println(x[0]);	
+		}
+	}
+
+}

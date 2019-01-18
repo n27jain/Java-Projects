@@ -1,0 +1,44 @@
+package grade12;
+
+import java.util.ArrayList;
+
+import searching.TextIO;
+import searching.list;
+
+public class Sortenator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		ArrayList <Integer> lists = new ArrayList <Integer>();
+
+	}
+	
+	public static void numbArray (ArrayList lists){
+		TextIO.readFile("RosterNames.txt");// Read our input
+		
+		while(!TextIO.eof()){// While loop that runs until the last line is read.
+			String take= TextIO.getln();
+			int convert= 
+			roster.add(newList);// Add the object to arraylist. 
+		}	
+		TextIO.readStandardInput();// Return the ap
+		
+	}
+	public static void makeRandomFile(){
+		// Create 2000 random numbers
+		TextIO.writeFile("NewInputs.txt");// We write on top of the old doc. 
+		
+		for(int i=0; i<2000; i++){// We keep doing this for every object in the array.
+			 int x = (int) Math.floor(Math.random());
+			 TextIO.putln(x);
+			  
+		}
+		
+	}
+	public static void bubble(){
+		
+	}
+	
+
+}

@@ -1,0 +1,16 @@
+package gameDeveloptment;
+
+import java.applet.Applet;
+import java.awt.Graphics;
+
+public class Main extends GameLoop {
+
+		public void init(){
+			setSize(1920,1080);
+		}
+		public void paint(Graphics g){
+			g.fillOval(x,y,20,20);
+		}
+
+
+}

@@ -1,0 +1,45 @@
+package competetion;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+
+
+int win=0;
+
+	for(int x=0;x<=5;x++){
+		
+		String player=br.readLine();
+		char y=player.charAt(0);
+		if(y=='W'){
+			win ++;}
+		else if (player=="L"){
+			
+			
+		}
+	}
+
+if(win==5||win==6){
+	System.out.print("3");
+}
+else if(win==3||win==4){
+	System.out.print("2");
+}
+else if(win==1||win==2){
+	System.out.print("1");
+}
+else if(win==0){
+	System.out.print("-1");
+}
+}
+		
+		
+	
+
+}

@@ -1,0 +1,161 @@
+
+public class rockPaperScissorator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/**
+		 * Create a rock paper scissors game 
+		 * Include options to chose any of the three hand motions.
+		 * Make computer chose one randomly as well.
+		 * Declare winner.
+		 * Allow player to see the score 
+		 * and give an option to exit the game or continue playing.
+		 * @author Naman Jain 12/15/15
+		 */
+		
+	//Declare the variables
+		int choice;// what you input.
+		
+		double random;// What the computer must randomly generate.
+		
+		int x=0;// Counts wins starting with 0
+		
+		int z=0;// Counts losses staring with 0
+		
+		// Each string is made to make rest of the coding easier
+		// and in case of one mistake, all mistakes can be edited by one string.
+		String tie= "It's a tie!";// when used, it will output "It's a tie!"
+		
+		String lose="You lost!";// Same use as string tie but for when you lose.
+		
+		String win="You Win!";// // Same use as string tie but when you win.
+		
+		String rock="Computer chose rock!";// Used when computer picks rock.
+		
+		String paper="Computer chose paper";// Used when computer picks paper.
+		
+		String sci="Computer chose scissors!";// Used when computer picks scissors.
+		
+		
+	
+	
+	// Program staring
+		// outputs information about the game.
+		System.out.println("Welcome! Let’s Play Rock-Paper-Scissors!");
+		System.out.println("Remember:");
+		System.out.println("Rock breaks Scissors, Paper covers Rock and Scissors cut Paper");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+	
+		private static do  dowork(int choice, double random){
+
+	do{
+		// Programs outputs this after each game until user chooses to exit.	
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Ready?!");
+		System.out.println("1 – Rock");
+		System.out.println("2 – Paper");
+		System.out.println("3 – Scissors");
+		System.out.println("0 - Exit");
+		System.out.println("Please choose your action:");
+		
+		//Generates variables
+		choice = TextIO.getlnInt();// You input your choice of action
+		random=Math.floor(Math.random()*(3)+1);// Computer calculates random number from 1,2,3
+		
+		
+		// Based on the input choice of either rock, paper, or scissors, a menu determines the outcome.
+		switch (choice){
+			case 1:// If you chose rock
+				if (random==1)// when computer chooses rock
+				{
+					System.out.println(rock);//Output computer choice rock
+					System.out.println(tie);//Output tie
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+			
+				if (random==2)// when computer chooses paper
+				{
+					System.out.println(paper);//Output computer choice paper
+					System.out.println(lose);//Output lose
+					z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				if (random==3)// when computer chooses scissors
+				{
+					System.out.println(sci);//Output computer choice scissors
+					System.out.println(win);//Output win
+					x++; z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				
+				break;
+			
+			case 2://If you chose paper
+				if (random==1)// when computer chooses rock
+				{
+					System.out.println(rock);//Output computer choice rock
+					System.out.println(win);
+					x++; z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				
+				if (random==2)// when computer chooses paper
+				{
+					System.out.println(paper);//Output computer choice paper
+					System.out.println(tie);//Output tie
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				if (random==3)// when computer chooses scissors
+				{
+					System.out.println(sci);//Output computer choice scissors
+					System.out.println(lose);//Output lose
+					z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				break;
+			
+			case 3://If you chose scissors
+				if (random==1)// when computer chooses rock
+				{
+					System.out.println(rock);//Output computer choice rock
+					System.out.println(lose);//Output lose
+					z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				if (random==2)// when computer chooses paper
+				{
+					System.out.println(paper);//Output computer choice paper
+					System.out.println(win);//Output win
+					x++; z++;
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				if (random==3)// when computer chooses scissors
+				{
+					System.out.println(sci);//Output computer choice scissors
+					System.out.println(tie);//Output tie
+					System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+					}
+				break;
+			
+			case 0://If you chose to exit
+				System.out.println("Goodbye!");// Outputs goodbye
+				System.out.println("You have won "+x+" of "+z+" games.");// Outputs score
+			break;
+		}
+			
+		}while(choice>0);// Continue to function this block of code until user hits 0 to exit.
+	}
+	}
+}	
+		
+	
+
+	
+		
+		
+
+

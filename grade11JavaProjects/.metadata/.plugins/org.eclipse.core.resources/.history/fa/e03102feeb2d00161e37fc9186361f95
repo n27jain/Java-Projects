@@ -1,0 +1,39 @@
+package chapter4;
+
+public class testings {
+
+	public static void main(String[] args) {
+		
+		for(int t=0;t<i;t++){
+			// Check if the case has already been used.
+				
+				if(check==eliminate[t]){
+		
+					t=0;//restart the loop to check for repeat...
+					
+					System.out.println("That briefcase has already been opened!");
+					System.out.println("Enter briefcase number "+(i));// but first ask for a new one.
+					
+					check=TextIO.getInt();
+					
+					while(check<1&&check>10){// If it is an incorrect case... Ask again.
+						
+						System.out.println("That briefcase doesn’t exist!");
+						System.out.println("Enter briefcase number "+(i));
+						check=TextIO.getInt();
+					}
+				}
+				else if(check!=eliminate[t]&&t==i-1){
+					// when the loop has gone by and is on the last counter.
+					// If the values did not match the past value...
+					
+					eliminate[i-1]=check;	// Check is the new value and replaces the current briefcase that is being asked.
+					
+				}
+				
+			}
+		
+		
+}
+}
+

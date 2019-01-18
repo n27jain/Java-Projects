@@ -1,0 +1,40 @@
+package grade12;
+
+public class NumberSworder {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		TextIO.readFile("NewInputs.txt");
+		
+		
+		int[] intArray = new int[20];
+		
+		for(int i=0;i<20;i++){
+			intArray[i]=TextIO.getlnInt();
+		}
+		
+		int temp;
+		boolean sorted;
+		// Traverse the list until no more swaps made
+		do {
+		  sorted = true; // Initialize default
+		  // Start the loop from 1, not 0
+		  for (int i = 1; i < intArray.length; i++) {
+		    // If elements i-1 and i are out of order,
+		    // then swap elements i-1 and i
+		    if (intArray[i - 1] > intArray[i]) {
+		      temp = intArray[i-1];
+		      intArray[i-1] = intArray[i];
+		      intArray[i] = temp;
+		      sorted = false;
+		    } // if
+		  } // for
+		} while (!sorted);
+		
+		for(int x : intArray){
+			System.out.println(x);
+		}
+	}
+
+}

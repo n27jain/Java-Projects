@@ -1,0 +1,23 @@
+package competetion;
+
+public class helpte {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[]x=new int[4];
+		String xx=br.readLine();
+		for(int i=0;i<xx.length();i++){
+			char a=xx.charAt(i);
+			char q=xx.charAt(i+1);
+			int b=Character.getNumericValue(a);
+			int c=Character.getNumericValue(q);
+			if(a!=' '&&q!=' '){
+			x[i]=(b+10+c);
+			}
+			else if(a!=' '&&b==' '){
+				x[i]=(a);
+			}
+			
+	}
+
+}

@@ -1,0 +1,19 @@
+
+public class PRACTICE {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		double random;
+		random=Math.floor(Math.random()*(3)+1);
+		
+			
+		System.out.print(random);
+		
+		
+		
+		
+	}
+
+}

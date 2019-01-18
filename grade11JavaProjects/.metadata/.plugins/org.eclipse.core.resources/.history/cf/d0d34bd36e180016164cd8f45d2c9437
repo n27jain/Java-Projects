@@ -1,0 +1,10 @@
+package chapter4;
+
+public class savestuff {
+
+	public static void main(String[] args) {
+		int wow=99%100;
+		System.out.print(wow);
+	}
+
+}

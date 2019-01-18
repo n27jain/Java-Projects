@@ -1,0 +1,25 @@
+package competetion;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class prac {
+
+	public static void main(String[] args)throws IOException {
+		// TODO Auto-generated method stub
+		int win=0;
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		int x=0;
+			while(x!=7){
+				String player=br.readLine();
+				x++;
+				if(player=="W"){
+					win++;
+				}
+				else if (player=="L"){
+					
+				}
+			}
+			System.out.print(win);
+	}
+
+}
